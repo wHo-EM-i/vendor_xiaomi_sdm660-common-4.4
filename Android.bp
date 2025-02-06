@@ -316,7 +316,7 @@ android_app_import {
 dex_import {
 	name: "tcmclient",
 	owner: "xiaomi",
-	jars: ["proprietary/framework/tcmclient.jar"],
+	jars: ["proprietary/system/framework/tcmclient.jar"],
 }
 
 dex_import {
@@ -1026,13 +1026,6 @@ dex_import {
 	system_ext_specific: true,
 }
 
-dex_import {
-	name: "vendor.qti.voiceprint-V1.0-java",
-	owner: "xiaomi",
-	jars: ["proprietary/system_ext/framework/vendor.qti.voiceprint-V1.0-java.jar"],
-	system_ext_specific: true,
-}
-
 prebuilt_etc_xml {
 	name: "vendor.qti.gnss@3.0-service.xml",
 	owner: "xiaomi",
@@ -1040,5 +1033,19 @@ prebuilt_etc_xml {
 	filename_from_src: true,
 	sub_dir: "vintf/manifest",
 	soc_specific: true,
+}
+
+install_symlink {
+	name: "libimscamera_jni_libimscamera_jni_symlink64",
+	system_ext_specific: true,
+	installed_location: "priv-app/ims/lib/arm64/libimscamera_jni.so",
+	symlink_target: "/system_ext/lib64/libimscamera_jni.so",
+}
+
+install_symlink {
+	name: "libimsmedia_jni_libimsmedia_jni_symlink64",
+	system_ext_specific: true,
+	installed_location: "priv-app/ims/lib/arm64/libimsmedia_jni.so",
+	symlink_target: "/system_ext/lib64/libimsmedia_jni.so",
 }
 
